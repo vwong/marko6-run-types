@@ -1,0 +1,20 @@
+{
+  "name": "marko6-run-types",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "marko-run build",
+    "dev": "marko-run",
+    "preview": "marko-run preview",
+    "typecheck": "mtc"
+  },
+  "dependencies": {
+    "@marko/run": "^0.11.0",
+    "marko": "^6.2.1"
+  },
+  "devDependencies": {
+    "@marko/ts-plugin": "^3.1.5",
+    "@marko/type-check": "^3.1.1"
+  }
+}
