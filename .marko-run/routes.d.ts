@@ -9,13 +9,12 @@ import type * as $ from "@marko/run";
 
 declare module "@marko/run" {
 	interface App extends $.DefineRoutes<{
-		"/": [L1, P1];
-		"/$id": [H1];
+		"/": [H1, L1, P1];
 	}> {}
 }
 
-type H1 = $.Handler<"H1", typeof import("../src/routes/$id+handler")>;
-declare module "../src/routes/$id+handler" {
+type H1 = $.Handler<"H1", typeof import("../src/routes/+handler")>;
+declare module "../src/routes/+handler" {
   const Run: $.Namespace<H1>;
   namespace Run {
     type Context = $.ContextForFile<H1>;
@@ -24,7 +23,7 @@ declare module "../src/routes/$id+handler" {
   /** @deprecated use `Run` namespace instead */
   namespace MarkoRun {
     export { NotHandled, NotMatched, GetPaths, PostPaths, GetablePath, GetableHref, PostablePath, PostableHref, Platform };
-    export type Route = $.Routes["/$id"];
+    export type Route = $.Routes["/"];
     export type Context = $.MultiRouteContext<Route>;
     export type Handler = $.HandlerLike<Route>;
     export type GET = $.HandlerLike<Route, "GET">;
